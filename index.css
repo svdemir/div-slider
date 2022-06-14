@@ -1,0 +1,473 @@
+
+.divButtonMain{
+  /*display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;*/
+  padding-left: 1.5em;
+}
+
+
+.divButton{
+    height: 100px;
+    width: 100px;
+    margin-top: 0.6em;
+    
+}
+
+.buttonNumber{
+    line-height: 70px;
+    font-size: 2.7em;
+    font-weight: 700;
+    margin-right: 0.3em;    
+    padding-left: 0.1em;   
+    
+}
+
+#minikButtonMain{
+    background: #53555C;
+    height: 3em; 
+    /*padding-top: 0.3em;*/
+    overflow: hidden;
+    line-height: 45px;    
+    padding-left: 2em;
+}
+
+.minikButtonNumber{
+    line-height: 30px;
+    font-size: 2.8em;
+    font-weight: 600;
+}   
+
+:root {
+  --color-slider-day: #2d3036;
+  --color-slider-night: #727272;  
+
+}
+
+* {  
+  box-sizing: border-box;
+}
+
+.buttonMain{  
+display: flex;   
+flex-wrap: wrap;
+}
+
+.renklendirme{  
+background: #53555C;
+}
+
+
+@font-face {
+font-family: 'JD LCD Rounded';
+src: url('./fonts/JdLcdRoundedRegular-vXwE.ttf');
+src: url('./fonts/JD-LCD-Rounded.eot?#iefix') format('embedded-opentype'),
+    url('./fonts/JD-LCD-Rounded.woff2') format('woff2'),
+    url('./fonts/JD-LCD-Rounded.woff') format('woff'),
+    url('./fonts/JD-LCD-Rounded.ttf') format('truetype'),
+    url('./fonts/JD-LCD-Rounded.svg#JD-LCD-Rounded') format('svg');
+font-weight: normal;
+font-style: normal;
+font-display: swap;
+}
+
+.time{   
+color: #2cff1d;  
+font-family: 'JD LCD Rounded';   
+line-height: 48px;
+font-size: 75px;
+}
+
+.time2{  
+color: #cc0400;
+font-family: 'JD LCD Rounded';  
+line-height: 48px;
+font-size: 75px;
+}
+
+
+
+
+
+.App {    
+  
+  margin-top: 0.2em;
+  margin-bottom: 0.2em;
+  height: 100%;
+  transition: 0.3s;
+}
+
+.Switch {
+  display: flex;    
+}
+
+.Switch:hover {
+  cursor: pointer;
+}
+
+.Switch__CheckBox {
+  opacity: 0;
+  width: 0px;
+  height: 0px;
+}
+
+.Switch__Slider {
+  width: 6.3rem; /* dikdörtgen uzunluk*/
+  height: 6.55rem;
+  border-radius: 0rem;
+  margin: 0 0.1rem;
+  padding: 0rem;
+  display: flex;
+  align-items: center;
+  background: var(--color-slider-day);
+  transition: 0.3s;
+}
+
+input:checked ~ .Switch__Slider {
+  background: var(--color-slider-night);
+  transition: 0.3s;
+}
+
+.Switch__SliderDot {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+}
+
+.Switch__SliderDot {  
+  background: url(/sliderButton/img/flag_starter.png);
+  background-size: 100%;
+  background-position: center;
+  transition: 0.3s;
+  will-change: transform;
+  box-shadow: 0 0rem 0.3rem 0 var(--color-slider-dot-day-shadow);
+}
+
+input:checked ~ .Switch__Slider .Switch__SliderDot {  
+  background:url(/sliderButton/img/flag_starter.png);
+  background-size: 90%;
+  background-position: center;
+  transform: translateX(60%) ;/* sürüklenme mesafesi*/
+  transition: 0.3s;  
+}
+
+.App2 {    
+  margin-top: 1em;
+  height: 100%;
+  transition: 0.3s;
+}
+
+.Switch2 {
+  display: flex;
+  
+}
+
+.Switch2:hover {
+  cursor: pointer;
+}
+
+.Switch__CheckBox2 {
+  opacity: 0;
+  width: 0px;
+  height: 0px;
+}
+
+.Switch__Slider2 {
+  width: 6.3rem; /* dikdörtgen uzunluk*/
+  height: 6.55rem;
+  border-radius: 0rem;
+  margin: 0 0.1rem;
+  padding: 0.1rem;
+  display: flex;
+  align-items: center;
+  background: var(--color-slider-day);
+  transition: 0.3s;
+}
+
+input:checked ~ .Switch__Slider2 {
+  background: var(--color-slider-night);
+  transition: 0.3s;
+}
+
+.Switch__SliderDot2 {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+}
+
+.Switch__SliderDot2 {  
+  background: url(/sliderButton/img/flag_green.png);
+  background-size: 100%;
+  background-position: center;
+  transition: 0.3s;
+  will-change: transform;
+  box-shadow: 0 0rem 0.3rem 0 var(--color-slider-dot-day-shadow);
+}
+
+input:checked ~ .Switch__Slider2 .Switch__SliderDot2 {  
+  background: url(/sliderButton/img/flag_green.png);
+  background-size: 90%;
+  background-position: center;
+  transform: translateX(60%) ;/* sürüklenme mesafesi*/
+  transition: 0.3s;  
+}
+
+.App3 {
+  
+  margin-top: 1em;
+  height: 100%;
+  transition: 0.3s;
+}
+
+.Switch3 {
+  display: flex;
+  
+}
+
+.Switch3:hover {
+  cursor: pointer;
+}
+
+.Switch__CheckBox3 {
+  opacity: 0;
+  width: 0px;
+  height: 0px;
+}
+
+.Switch__Slider3 {
+  width: 6.3rem; /* dikdörtgen uzunluk*/
+  height: 6.55rem;
+  border-radius: 0rem;
+  margin: 0 0.1rem;
+  padding: 0.1rem;
+  display: flex;
+  align-items: center;
+  background: var(--color-slider-day);
+  transition: 0.3s;
+}
+
+input:checked ~ .Switch__Slider3 {
+  background: var(--color-slider-night);
+  transition: 0.3s;
+}
+
+.Switch__SliderDot3 {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+}
+
+.Switch__SliderDot3 {  
+  background: url(/sliderButton/img/flag_yellow.png);
+  background-size: 90%;
+  background-position: center;
+  transition: 0.3s;
+  will-change: transform;
+  box-shadow: 0 0rem 0.3rem 0 var(--color-slider-dot-day-shadow);
+}
+
+input:checked ~ .Switch__Slider3 .Switch__SliderDot3 {  
+  background: url(/sliderButton/img/flag_yellow.png);
+  background-size: 90%;
+  background-position: center;
+  transform: translateX(60%) ;/* sürüklenme mesafesi*/
+  transition: 0.3s;  
+}
+
+.App4 {
+  
+  margin-top: 1em;
+  height: 100%;
+  transition: 0.3s;
+}
+
+.Switch4 {
+  display: flex;
+  
+}
+
+.Switch4:hover {
+  cursor: pointer;
+}
+
+.Switch__CheckBox4 {
+  opacity: 0;
+  width: 0px;
+  height: 0px;
+}
+
+.Switch__Slider4 {
+  width: 6.3rem; /* dikdörtgen uzunluk*/
+  height: 6.55rem;
+  border-radius: 0rem;
+  margin: 0 0.1rem;
+  padding: 0.1rem;
+  display: flex;
+  align-items: center;
+  background: var(--color-slider-day);
+  transition: 0.3s;
+}
+
+input:checked ~ .Switch__Slider4 {
+  background: var(--color-slider-night);
+  transition: 0.3s;
+}
+
+.Switch__SliderDot4 {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+}
+
+.Switch__SliderDot4 {  
+  background: url(/sliderButton/img/flag_red.png);
+  background-size: 90%;
+  background-position: center;
+  transition: 0.3s;
+  will-change: transform;
+  box-shadow: 0 0rem 0.3rem 0 var(--color-slider-dot-day-shadow);
+}
+
+input:checked ~ .Switch__Slider4 .Switch__SliderDot4 {  
+  background: url(/sliderButton/img/flag_red.png);
+  background-size: 90%;
+  background-position: center;
+  transform: translateX(60%) ;/* sürüklenme mesafesi*/
+  transition: 0.3s;  
+}
+
+.App5 {
+  
+  margin-top: 1em;
+  height: 100%;
+  transition: 0.3s;
+}
+
+.Switch5 {
+  display: flex;
+  
+}
+
+.Switch5:hover {
+  cursor: pointer;
+}
+
+.Switch__CheckBox5 {
+  opacity: 0;
+  width: 0px;
+  height: 0px;
+}
+
+.Switch__Slider5 {
+  width: 6.3rem; /* dikdörtgen uzunluk*/
+  height: 6.55rem;
+  border-radius: 0rem;
+  margin: 0 0.1rem;
+  padding: 0.1rem;
+  display: flex;
+  align-items: center;
+  background: var(--color-slider-day);
+  transition: 0.3s;
+}
+
+input:checked ~ .Switch__Slider5 {
+  background: var(--color-slider-night);
+  transition: 0.3s;
+}
+
+.Switch__SliderDot5 {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+}
+
+.Switch__SliderDot5 {  
+  background: url(/sliderButton/img/flag_red.png);
+  background-size: 90%;
+  background-position: center;
+  transition: 0.3s;
+  will-change: transform;
+  box-shadow: 0 0rem 0.3rem 0 var(--color-slider-dot-day-shadow);
+}
+
+input:checked ~ .Switch__Slider5 .Switch__SliderDot5 {  
+  background: url(/sliderButton/img/flag_red.png);
+  background-size: 90%;
+  background-position: center;
+  transform: translateX(60%) ;/* sürüklenme mesafesi*/
+  transition: 0.3s;  
+}
+
+.App6 {    
+  margin-top: 1em;
+  height: 100%;
+  transition: 0.3s;
+}
+
+.Switch6 {
+  display: flex;    
+}
+
+.Switch6:hover {
+  cursor: pointer;
+}
+
+.Switch__CheckBox6 {
+  opacity: 0;
+  width: 0px;
+  height: 0px;
+}
+
+.Switch__Slider6 {
+  width: 6.3rem; /* dikdörtgen uzunluk*/
+  height: 6.55rem;
+  border-radius: 0rem;
+  margin: 0 0.1rem;
+  padding: 0.1rem;
+  display: flex;
+  align-items: center;
+  background: var(--color-slider-day);
+  transition: 0.3s;
+}
+
+input:checked ~ .Switch__Slider6 {
+  background: var(--color-slider-night);
+  transition: 0.3s;
+}
+
+.Switch__SliderDot6 {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+}
+
+.Switch__SliderDot6 {  
+  background: url(/sliderButton/img/flag_checkered.png);
+  background-size: 90%;
+  background-position: center;
+  transition: 0.3s;
+  will-change: transform;
+  box-shadow: 0 0rem 0.3rem 0 var(--color-slider-dot-day-shadow);
+}
+
+input:checked ~ .Switch__Slider6 .Switch__SliderDot6 {  
+  background: url(/sliderButton/img/flag_checkered.png);
+  background-size: 90%;
+  background-position: center;
+  transform: translateX(60%) ;/* sürüklenme mesafesi*/
+  transition: 0.3s;  
+}
+
+
+.raceNametext {	
+	background: linear-gradient(to right, #b43726 0%, #e09045 100%);
+	-webkit-text-fill-color: transparent;
+	font-size: 2.6vw;
+  font-family: 'Poppins', sans-serif;
+  padding-left: 1em;
+  margin-top: 8px;
+	-webkit-background-clip: text;
+};
+
+ 
