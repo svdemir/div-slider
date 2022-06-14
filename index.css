@@ -136,7 +136,7 @@ input:checked ~ .Switch__Slider {
 }
 
 .Switch__SliderDot {  
-  background: url(/sliderButton/img/flag_starter.png);
+  background: url(./img/flag_starter.png);
   background-size: 100%;
   background-position: center;
   transition: 0.3s;
@@ -145,7 +145,7 @@ input:checked ~ .Switch__Slider {
 }
 
 input:checked ~ .Switch__Slider .Switch__SliderDot {  
-  background:url(/sliderButton/img/flag_starter.png);
+  background:url(./img/flag_starter.png);
   background-size: 90%;
   background-position: center;
   transform: translateX(60%) ;/* sürüklenme mesafesi*/
@@ -197,7 +197,7 @@ input:checked ~ .Switch__Slider2 {
 }
 
 .Switch__SliderDot2 {  
-  background: url(/sliderButton/img/flag_green.png);
+  background: url(./img/flag_green.png);
   background-size: 100%;
   background-position: center;
   transition: 0.3s;
@@ -206,7 +206,7 @@ input:checked ~ .Switch__Slider2 {
 }
 
 input:checked ~ .Switch__Slider2 .Switch__SliderDot2 {  
-  background: url(/sliderButton/img/flag_green.png);
+  background: url(./img/flag_green.png);
   background-size: 90%;
   background-position: center;
   transform: translateX(60%) ;/* sürüklenme mesafesi*/
@@ -259,7 +259,7 @@ input:checked ~ .Switch__Slider3 {
 }
 
 .Switch__SliderDot3 {  
-  background: url(/sliderButton/img/flag_yellow.png);
+  background: url(./img/flag_yellow.png);
   background-size: 90%;
   background-position: center;
   transition: 0.3s;
@@ -268,7 +268,7 @@ input:checked ~ .Switch__Slider3 {
 }
 
 input:checked ~ .Switch__Slider3 .Switch__SliderDot3 {  
-  background: url(/sliderButton/img/flag_yellow.png);
+  background: url(./img/flag_yellow.png);
   background-size: 90%;
   background-position: center;
   transform: translateX(60%) ;/* sürüklenme mesafesi*/
@@ -321,7 +321,7 @@ input:checked ~ .Switch__Slider4 {
 }
 
 .Switch__SliderDot4 {  
-  background: url(/sliderButton/img/flag_red.png);
+  background: url(./img/flag_red.png);
   background-size: 90%;
   background-position: center;
   transition: 0.3s;
@@ -330,7 +330,7 @@ input:checked ~ .Switch__Slider4 {
 }
 
 input:checked ~ .Switch__Slider4 .Switch__SliderDot4 {  
-  background: url(/sliderButton/img/flag_red.png);
+  background: url(./img/flag_red.png);
   background-size: 90%;
   background-position: center;
   transform: translateX(60%) ;/* sürüklenme mesafesi*/
@@ -383,7 +383,7 @@ input:checked ~ .Switch__Slider5 {
 }
 
 .Switch__SliderDot5 {  
-  background: url(/sliderButton/img/flag_red.png);
+  background: url(./img/flag_red.png);
   background-size: 90%;
   background-position: center;
   transition: 0.3s;
@@ -392,7 +392,7 @@ input:checked ~ .Switch__Slider5 {
 }
 
 input:checked ~ .Switch__Slider5 .Switch__SliderDot5 {  
-  background: url(/sliderButton/img/flag_red.png);
+  background: url(./img/flag_red.png);
   background-size: 90%;
   background-position: center;
   transform: translateX(60%) ;/* sürüklenme mesafesi*/
@@ -443,7 +443,7 @@ input:checked ~ .Switch__Slider6 {
 }
 
 .Switch__SliderDot6 {  
-  background: url(/sliderButton/img/flag_checkered.png);
+  background: url(./img/flag_checkered.png);
   background-size: 90%;
   background-position: center;
   transition: 0.3s;
@@ -452,7 +452,7 @@ input:checked ~ .Switch__Slider6 {
 }
 
 input:checked ~ .Switch__Slider6 .Switch__SliderDot6 {  
-  background: url(/sliderButton/img/flag_checkered.png);
+  background: url(./img/flag_checkered.png);
   background-size: 90%;
   background-position: center;
   transform: translateX(60%) ;/* sürüklenme mesafesi*/
