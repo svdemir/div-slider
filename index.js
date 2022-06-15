@@ -1,8 +1,9 @@
 
+var sayacStatus=0;
 
 $(document).on('click', ".divButton", function (e) {
 
-    var beklemeSuresi = $("#updateSecond").val();   
+    var beklemeSuresi = $("#updateSecond").val();
 
     var tarih = new Date();
     $(this).data("tick", tarih);
@@ -23,8 +24,9 @@ setInterval(() => {
 
     var checkeredFlagStatus = $("#checkeredFlagStatus").val();
     var timerStatus = $("#timerStatus").val();
+    var greenFlagTimerStatus =  $("#greenFlagTimerStatus").val();
 
-    if (checkeredFlagStatus == 0 && timerStatus == 1) {
+    if (checkeredFlagStatus == 0 && timerStatus == 1 && greenFlagTimerStatus==1) {
 
         $(".btn").each(function (btn) {
 
@@ -46,28 +48,32 @@ setInterval(() => {
 
 
 
-const app = document.querySelector('#app')
-const appSwitch = document.querySelector('#switch')
-const switchSlider = document.querySelector('.Switch__Slider')
 
 $(document).on('change', "#switch", function () {
+    const app = document.querySelector('#app')
     app.classList.toggle('App--Day')
     app.classList.toggle('App--Night')
 
-    if ($("#timerStatus").val()==1) {        
-        $("#timerStatus").val(0)
-    }    
-    else{
-        $("#timerStatus").val(1)
-        
-    }
+    BayraklarEnableSaatHaric();
 
-    ZamanBayrak();     
+    if ($('#switch').is(':checked')) {
+        $("#timerStatus").val(1)
+    }
+    else {
+        $("#timerStatus").val(0)
+        $(this).attr("disabled", true);
+        $(".divButton").each(function (btn) {
+            $(this).removeAttr('class');
+            $(this).attr('class', 'btn btn-secondary btn-lg rounded-0 divButton disabled');
+        })
+        BayraklarKapat();
+    }    
 
 });
 
 function ZamanBayrak() {
     if ($("#timerStatus").val() == 1) {
+        sayacStatus=1;
         BayraklarEnableSaatHaric();
         $(".divButton").each(function (btn) {
             $(this).removeAttr('class');
@@ -76,8 +82,8 @@ function ZamanBayrak() {
         })
 
         var fiveMinutes = 60 * 2,
-        display = document.querySelector('#time'),
-        display2 = document.querySelector('#time2');
+            display = document.querySelector('#time'),
+            display2 = document.querySelector('#time2');
 
         startTimer2(fiveMinutes, display2);
         startTimer(0, display);
@@ -85,68 +91,73 @@ function ZamanBayrak() {
     }
     else {
         $(this).attr("disabled", true);
-        $(".divButton").each(function (btn) {
-            $(this).removeAttr('class');
-            $(this).attr('class', 'btn btn-secondary btn-lg rounded-0 divButton disabled');            
-            BayraklarKapat();
-        })
+        ButonlarPasif();
+        sayacStatus=0;
     }
-
-   
 }
 
 
 
-const app2 = document.querySelector('#app2')
-const appSwitch2 = document.querySelector('#switch2')
-const switchSlider2 = document.querySelector('.Switch__Slider2')
 
 $(document).on('change', "#switch2", function () {
+    const app2 = document.querySelector('#app2')
     app2.classList.toggle('App--Day2')
     app2.classList.toggle('App--Night2')
+         
     
-    
-    if ($("#greenFlagStatus").val()==1) {        
-        $("#greenFlagStatus").val(0)
+    if ($("#greenFlagTimerStatus").val() == 0) {
+        ZamanBayrak();
+        $("#greenFlagTimerStatus").val(1)
     }    
-    else{
-        $("#greenFlagStatus").val(1)
+
+    if ($("#greenFlagStatus").val() == 1) {
+        $("#greenFlagStatus").val(0)        
     }
-    Bayrak1();  
+    else {
+        $("#greenFlagStatus").val(1)                
+    }
+
+    Bayrak1();
 })
 
+function ButonlarPasif() {
+    $(".divButton").each(function (btn) {
+        $(this).removeAttr('class');
+        $(this).attr('class', 'btn btn-secondary btn-lg rounded-0 divButton disabled');
+    });
+    BayraklarKapat();
+}
+
 function Bayrak1() {
-    if ($("#greenFlagStatus").val()==1) {        
+    if ($("#greenFlagStatus").val() == 1) {
         $("#switch3").prop("disabled", true);
         $("#switch4").prop("disabled", true);
         $("#switch5").prop("disabled", true);
         $("#switch6").prop("disabled", true);
     }
     else {
-        
+
         $("#switch3").prop("disabled", false);
         $("#switch4").prop("disabled", false);
         $("#switch5").prop("disabled", false);
         $("#switch6").prop("disabled", false);
-    }   
+    }
 }
 
 
 const app3 = document.querySelector('#app3')
-const appSwitch3 = document.querySelector('#switch3')
-const switchSlider3 = document.querySelector('.Switch__Slider3')
 
 $(document).on('change', "#switch3", function () {
     app3.classList.toggle('App--Day3')
     app3.classList.toggle('App--Night3')
-    
-    if ($("#yellowFlagStatus").val()==1) {
+
+    if ($("#yellowFlagStatus").val() == 1) {
         $("#yellowFlagStatus").val(0)
-    }    
-    else{
+    }
+    else {
         $("#yellowFlagStatus").val(1)
     }
-    Bayrak2();   
+    Bayrak2();
 })
 
 function Bayrak2() {
@@ -165,21 +176,19 @@ function Bayrak2() {
 }
 
 const app4 = document.querySelector('#app4')
-const appSwitch4 = document.querySelector('#switch4')
-const switchSlider4 = document.querySelector('.Switch__Slider4')
 
 $(document).on('change', "#switch4", function () {
     app4.classList.toggle('App--Day4')
     app4.classList.toggle('App--Night4')
-    
 
-    if ($("#redFlagStatus").val()==1) {
+
+    if ($("#redFlagStatus").val() == 1) {
         $("#redFlagStatus").val(0)
-    }    
-    else{
+    }
+    else {
         $("#redFlagStatus").val(1)
     }
-    Bayrak3();   
+    Bayrak3();
 })
 
 function Bayrak3() {
@@ -198,21 +207,19 @@ function Bayrak3() {
 }
 
 const app5 = document.querySelector('#app5')
-const appSwitch5 = document.querySelector('#switch5')
-const switchSlider5 = document.querySelector('.Switch__Slider5')
 
 $(document).on('change', "#switch5", function () {
     app5.classList.toggle('App--Day5')
     app5.classList.toggle('App--Night5')
-    
-    if ($("#whiteFlagStatus").val()==1) {
+
+    if ($("#whiteFlagStatus").val() == 1) {
         $("#whiteFlagStatus").val(0)
-    }    
-    else{
+    }
+    else {
         $("#whiteFlagStatus").val(1)
     }
 
-    Bayrak4();   
+    Bayrak4();
 })
 
 function Bayrak4() {
@@ -233,22 +240,20 @@ function Bayrak4() {
 }
 
 const app6 = document.querySelector('#app6')
-const appSwitch6 = document.querySelector('#switch6')
-const switchSlider6 = document.querySelector('.Switch__Slider6')
 
 $(document).on('change', "#switch6", function () {
     app6.classList.toggle('App--Day6')
-    app6.classList.toggle('App--Night6')  
+    app6.classList.toggle('App--Night6')
 
 
-    if ($("#checkeredFlagStatus").val()==1) {
+    if ($("#checkeredFlagStatus").val() == 1) {
         $("#checkeredFlagStatus").val(0)
-    }    
-    else{
+    }
+    else {
         $("#checkeredFlagStatus").val(1)
-    }    
-    Bayrak5();   
-   
+    }
+    Bayrak5();
+
 })
 
 function Bayrak5() {
@@ -278,7 +283,7 @@ function startTimer(duration, display) {
     var timer = duration, minutes, seconds;
     setInterval(function () {
         var timerStatus = $("#timerStatus").val();
-        if (timerStatus == 1) {
+        if (timerStatus == 1 && sayacStatus==1) {
             minutes = parseInt(timer / 60, 10)
             seconds = parseInt(timer % 60, 10);
             minutes = minutes < 10 ? "0" + minutes : minutes;
@@ -286,16 +291,10 @@ function startTimer(duration, display) {
             display.textContent = minutes + ":" + seconds;
             if (minutes == "02" && seconds == "00") {                 //süreye göre düzenlecek
                 display.textContent = minutes + ":" + seconds;
-                $("#timerStatus").val(0);
-                BayraklarKapat();
-                BayraklarDisable();
-                BayraklarDegerleriSifirla();
+                //$("#timerStatus").val(0);
                 //end yazılacak
-                $(".divButton").each(function (btn) {
-                    $(this).removeAttr('class');
-                    $(this).attr('class', 'btn btn-secondary btn-lg rounded-0 divButton disabled');            
-                    
-                })
+                $("#greenFlagTimerStatus").val(0);
+                sayacStatus=0;              
             }
             else {
                 ++timer
@@ -305,10 +304,10 @@ function startTimer(duration, display) {
             }
 
         }
-        else{
-            $("#switch").prop("checked", false);  
-                BayraklarDegerleriSifirla();
-                BayraklarDisable();   
+        else {
+            //$("#switch").prop("checked", false);
+            //BayraklarDegerleriSifirla();
+            //BayraklarDisable();
         }
     }, 200);
 }
@@ -317,7 +316,7 @@ function startTimer2(duration, display) {
     var timer = duration, minutes, seconds;
     setInterval(function () {
         var timerStatus = $("#timerStatus").val();
-        if (timerStatus == 1) {
+        if (timerStatus == 1 && sayacStatus==1) {
             minutes = parseInt(timer / 60, 10)
             seconds = parseInt(timer % 60, 10);
             minutes = minutes < 10 ? "0" + minutes : minutes;
@@ -325,26 +324,21 @@ function startTimer2(duration, display) {
             display.textContent = minutes + ":" + seconds;
             if (minutes == "00" && seconds == "00") {
                 display.textContent = minutes + ":" + seconds;
-                $("#timerStatus").val(0);
-                BayraklarKapat();
-                BayraklarDisable();
-                BayraklarDegerleriSifirla();
+                //$("#timerStatus").val(0);               
                 //end yazılacak
-                $(".divButton").each(function (btn) {
-                    $(this).removeAttr('class');
-                    $(this).attr('class', 'btn btn-secondary btn-lg rounded-0 divButton disabled');                                
-                })
+                $("#greenFlagTimerStatus").val(0);   
+                sayacStatus=0;             
             }
             else {
                 if (--timer < 0) {
                     timer = duration;
                 }
-            }            
+            }
         }
-        else{
-            $("#switch").prop("checked", false);  
-                BayraklarDegerleriSifirla();
-                BayraklarDisable();   
+        else {
+            //$("#switch").prop("checked", false);
+            //BayraklarDegerleriSifirla();
+            //BayraklarDisable();
         }
     }, 200);
 }
@@ -358,7 +352,7 @@ function BayraklarDisable() {
     $("#switch6").prop("disabled", true);
 }
 
-function BayraklarDisableSaatHaric() {    
+function BayraklarDisableSaatHaric() {
     $("#switch2").prop("disabled", true);
     $("#switch3").prop("disabled", true);
     $("#switch4").prop("disabled", true);
@@ -366,7 +360,7 @@ function BayraklarDisableSaatHaric() {
     $("#switch6").prop("disabled", true);
 }
 
-function BayraklarEnableSaatHaric() {    
+function BayraklarEnableSaatHaric() {
     $("#switch2").prop("disabled", false);
     $("#switch3").prop("disabled", false);
     $("#switch4").prop("disabled", false);
@@ -387,6 +381,7 @@ function BayraklarDegerleriSifirla() {
     $("#timerStatus").val(0);
 
     $("#greenFlagStatus").val(0);
+    $("#greenFlagTimerStatus").val(0);
     $("#yellowFlagStatus").val(0);
     $("#redFlagStatus").val(0);
     $("#whiteFlagStatus").val(0);
@@ -394,68 +389,87 @@ function BayraklarDegerleriSifirla() {
 }
 
 
-setInterval(function () {   
 
-    if ($("#raceStatus").val()==1) {
-        
-        if(!$('#switch').is(':checked'))
-        {            
-            if ($("#timerStatus").val()==1) {        
-                $("#switch").prop("checked", true); 
-                ZamanBayrak();  
-            } 
-            else{
-                $("#switch").prop("checked", false);  
-                BayraklarDegerleriSifirla();
-                BayraklarDisableSaatHaric();    
+
+setInterval(function () {
+
+    if ($("#raceStatus").val() == 1) {
+
+        if (!$('#switch').is(':checked')) {
+            if ($("#timerStatus").val() == 1) {
+                $("#switch").prop("checked", true);                
             }
-        }        
+            else {
+                $("#switch").prop("checked", false);
+                BayraklarDegerleriSifirla();
+                BayraklarDisableSaatHaric();
+                ButonlarPasif();                
+            }
+        }
+        else{
+            if ($("#timerStatus").val() == 0) {
+            $("#switch").prop("checked", false);
+                BayraklarDegerleriSifirla();
+                BayraklarDisableSaatHaric();
+                ButonlarPasif();
+            }
+        }       
 
-        if ($("#greenFlagStatus").val()==1) {
+
+        if ($("#greenFlagStatus").val() == 1) {
             $("#switch2").prop("checked", true);
             Bayrak1();
-        } 
-        else{
-            $("#switch2").prop("checked", false);   
         }
-    
-        if ($("#yellowFlagStatus").val()==1) {
+        else {
+            $("#switch2").prop("checked", false);
+        }
+
+        if ($("#greenFlagTimerStatus").val()==1) {
+            if (sayacStatus==0) {
+                ZamanBayrak();  
+            }            
+        } 
+
+
+
+        if ($("#yellowFlagStatus").val() == 1) {
             $("#switch3").prop("checked", true);
             Bayrak2();
-        } 
-        else{
+        }
+        else {
             $("#switch3").prop("checked", false);
         }
-    
-        if ($("#redFlagStatus").val()==1) {
+
+        if ($("#redFlagStatus").val() == 1) {
             $("#switch4").prop("checked", true);
             Bayrak3();
-        } 
-        else{
+        }
+        else {
             $("#switch4").prop("checked", false);
         }
-    
-        if ($("#whiteFlagStatus").val()==1) {
+
+        if ($("#whiteFlagStatus").val() == 1) {
             $("#switch5").prop("checked", true);
             Bayrak4();
-        } 
-        else{
+        }
+        else {
             $("#switch5").prop("checked", false);
         }
-    
-        if ($("#checkeredFlagStatus").val()==1) {
+
+        if ($("#checkeredFlagStatus").val() == 1) {
             $("#switch6").prop("checked", true);
             Bayrak5();
-        } 
-        else{
+        }
+        else {
             $("#switch6").prop("checked", false);
         }
     } else {
         BayraklarDegerleriSifirla();
         BayraklarDisable();
         BayraklarKapat();
+        ButonlarPasif();
     }
-  
+
 }, 200);
 
 
